@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="canvas" width="540px" height="545px"></canvas>
+		<!--js-->
+		<script type="text/javascript">
+			var oCanvas = document.getElementById("canvas");
+			var context = oCanvas.getContext("2d");
+            var time=1;
+            var s=0;
+			function draw() {
+				context.clearRect(0, 0, oCanvas.width, oCanvas.height);
+				//背景色
+				var grd = context.createLinearGradient(0, 0, 0, 545);
+				grd.addColorStop(0, "#8eb1f3");
+				grd.addColorStop(1, "#a1c0f7");
+				context.fillStyle = grd;
+				context.fillRect(0, 0, 540, 545);
+				//云朵
+				context.beginPath();
+				context.arc(16, 340, 30, 0, 2 * Math.PI, true);
+				context.closePath();
+				context.fillStyle = "#afcaf7";
+				context.fill();
+				context.beginPath();
+				context.arc(100, 350, 70, 0, 2 * Math.PI, true);
+				context.closePath();
+				context.fillStyle = "#afcaf7";
+				context.fill();
+				context.beginPath();
+				context.arc(200, 330, 90, 0, 2 * Math.PI, true);
+				context.closePath();
+				context.fillStyle = "#afcaf7";
+				context.fill();
+				context.beginPath();
+				context.arc(300, 380, 50, 0, 2 * Math.PI, true);
+				context.closePath();
+				context.fillStyle = "#afcaf7";
+				context.fill();
+				//山坡1
+				context.beginPath();
+				context.moveTo(0, 330);
+				context.quadraticCurveTo(290, 360, 540, 450);
+				context.lineTo(540, 545);
+				context.lineTo(0, 545);
+				context.lineTo(0, 330);
+				context.closePath();
+				grd = context.createLinearGradient(0, 0, 540, 0);
+				grd.addColorStop(0, "#96b5eb");
+				grd.addColorStop(0.5, "#9abbee");
+				context.fillStyle = grd;
+				context.fill();
+				//山坡2
+				context.beginPath();
+				context.moveTo(0, 430);
+				context.bezierCurveTo(145, 450, 460, 310, 540, 370);
+				context.moveTo(540, 370);
+				context.lineTo(540, 545);
+				context.lineTo(0, 545);
+				context.lineTo(0, 430);
+				context.closePath();
+				grd = context.createLinearGradient(0, 0, 540, 0);
+				grd.addColorStop(0, "#89afee");
+				grd.addColorStop(1, "#7ea1e1");
+				context.fillStyle = grd;
+				context.fill();
+				var speed = 2 * Math.PI / 360 * time
+					//风车1
+				context.beginPath();
+				context.moveTo(350, 385);
+				context.lineTo(360, 385);
+				context.lineTo(357, 265);
+				context.lineTo(353, 265);
+				context.lineTo(350, 385);
+				context.closePath();
+				context.fillStyle = "#7291d2";
+				context.fill();
+				//
+				for(var i = 0; i < 3; i++) {
+					context.save();
+					context.translate(355, 270)
+					context.rotate(2 * Math.PI / 3 * i + speed*20)
+					context.beginPath();
+					context.lineTo(5, -10);
+					context.lineTo(1, -70);
+					context.lineTo(-1, -70);
+					context.lineTo(-5, -10);
+					context.lineTo(0, 0);
+					context.closePath()
+					context.fillStyle = "#7ca2e9";
+					context.fill();
+					context.restore();
+				}
+				context.save();
+				context.translate(355, 270);
+				context.beginPath();
+				context.arc(0, 0, 3, 0, 2 * Math.PI, true);
+				context.closePath();
+				context.fillStyle = "#9fc2ff";
+				context.fill();
+				context.restore();
+				//风车2
+				context.beginPath();
+				context.moveTo(480, 360);
+				context.lineTo(488, 360);
+				context.lineTo(486, 280);
+				context.lineTo(482, 280);
+				context.lineTo(480, 360);
+				context.closePath();
+				context.fillStyle = "#7291d2";
+				context.fill();
+				//
+				for(var i = 0; i < 3; i++) {
+					context.save();
+					context.translate(484, 284)
+					context.rotate(2 * Math.PI / 3 * i + speed*5)
+					context.beginPath();
+					context.lineTo(4, -6);
+					context.lineTo(1, -50);
+					context.lineTo(-1, -50);
+					context.lineTo(-4, -6);
+					context.lineTo(0, 0);
+					context.closePath()
+					context.fillStyle = "#7ca2e9";
+					context.fill();
+					context.restore();
+				}
+				context.save();
+				context.translate(484, 284);
+				context.beginPath();
+				context.arc(0, 0, 2.5, 0, 2 * Math.PI, true);
+				context.closePath();
+				context.fillStyle = "#9fc2ff";
+				context.fill();
+				context.restore();
+				//风车3
+				context.beginPath();
+				context.moveTo(180, 360);
+				context.lineTo(188, 360);
+				context.lineTo(186, 280);
+				context.lineTo(182, 280);
+				context.lineTo(180, 360);
+				context.closePath();
+				context.fillStyle = "#7291d2";
+				context.fill();
+				//
+				for(var i = 0; i < 3; i++) {
+					context.save();
+					context.translate(184, 284)
+					context.rotate(2 * Math.PI / 3 * i + speed*10)
+					context.beginPath();
+					context.lineTo(4, -6);
+					context.lineTo(1, -50);
+					context.lineTo(-1, -50);
+					context.lineTo(-4, -6);
+					context.lineTo(0, 0);
+					context.closePath()
+					context.fillStyle = "#7ca2e9";
+					context.fill();
+					context.restore();
+				}
+				context.save();
+				context.translate(184, 284);
+				context.beginPath();
+				context.arc(0, 0, 2.5, 0, 2 * Math.PI, true);
+				context.closePath();
+				context.fillStyle = "#9fc2ff";
+				context.fill();
+				context.restore();
+				//风车4
+				context.beginPath();
+				context.moveTo(100, 375);
+				context.lineTo(110, 375);
+				context.lineTo(107, 255);
+				context.lineTo(103, 255);
+				context.lineTo(100, 375);
+				context.closePath();
+				context.fillStyle = "#7291d2";
+				context.fill();
+				//
+				for(var i = 0; i < 3; i++) {
+					context.save();
+					context.translate(105, 260)
+					context.rotate(2 * Math.PI / 3 * i + speed*30)
+					context.beginPath();
+					context.lineTo(5, -10);
+					context.lineTo(1, -70);
+					context.lineTo(-1, -70);
+					context.lineTo(-5, -10);
+					context.lineTo(0, 0);
+					context.closePath()
+					context.fillStyle = "#7ca2e9";
+					context.fill();
+					context.restore();
+				}
+				context.save();
+				context.translate(105, 260);
+				context.beginPath();
+				context.arc(0, 0, 3, 0, 2 * Math.PI, true);
+				context.closePath();
+				context.fillStyle = "#9fc2ff";
+				context.fill();
+				context.restore();
+				//漂浮云朵
+				//云朵1
+				var x=200;
+				speed=s*3
+				context.save();
+				context.translate(x+speed, 150);
+				context.beginPath();
+				context.moveTo(0, 0);
+				context.quadraticCurveTo(30, -30, 70, 0);
+				context.quadraticCurveTo(95,-20, 140, 0);
+				context.quadraticCurveTo(160,-10, 190, 0);
+				context.closePath()
+				grd = context.createLinearGradient(30,-30 , 0,30);
+				grd.addColorStop(0, "#9cbaf6");
+				grd.addColorStop(1, "#99b9f6");
+				context.fillStyle = grd;
+				context.fill();
+				context.restore();
+				//云朵2
+				var x=80;
+				speed=s*5
+				context.save();
+				context.translate(x+speed, 200);
+				context.beginPath();
+				context.moveTo(0, 0);
+				context.quadraticCurveTo(40,-40, 90, 0);
+				context.quadraticCurveTo(140,-50, 170, 0);
+				context.quadraticCurveTo(190,-40, 220, 0);
+				context.quadraticCurveTo(240,-15, 280, 0);
+				context.closePath()
+				grd = context.createLinearGradient(140,-50 , 0,50);
+				grd.addColorStop(0, "#9cbaf6");
+				grd.addColorStop(1, "#99b9f6");
+				context.fillStyle = grd;
+				context.fill();
+				context.restore();
+				//
+				time++;
+				s++;
+				if(x+speed>540){
+					s=0
+					s++;
+				}
+			}
+			draw();
+			setInterval(draw, 100)
+		</script>
+	</body>
+
+</html>
